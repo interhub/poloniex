@@ -15,10 +15,6 @@ const Stack = createStackNavigator()
 const AppNavigator = () => {
 	const { isLoaded } = useLoadResource()
 
-	if (!isLoaded) {
-		return null
-	}
-
 	return (
 		<>
 			<NavigationContainer ref={navigateRef} >
@@ -26,14 +22,14 @@ const AppNavigator = () => {
 					detachInactiveScreens={false}
 					headerMode={'screen'}
 					initialRouteName={SCREEN_NAME.LOAD_PAGE}>
-					<Stack.Screen
+					{!isLoaded && <Stack.Screen
 						options={{ ...getScreenAnimation(SCREEN_ANIMATION.TOP) }}
 						name={SCREEN_NAME.LOAD_PAGE}
-						component={LoadingPage} />
-					<Stack.Screen
+						component={LoadingPage} />}
+					{isLoaded && <Stack.Screen
 						options={{ ...getScreenAnimation(SCREEN_ANIMATION.TOP) }}
 						name={SCREEN_NAME.TABS_PAGE}
-						component={TabsNavigator} />
+						component={TabsNavigator} />}
 				</Stack.Navigator>
 			</NavigationContainer>
 			<StatusBar style={'light'} translucent={true} backgroundColor={COLOR.NONE} />

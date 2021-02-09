@@ -25,7 +25,7 @@ const TabsNavigator = () => {
 		lazy={true}
 		tabBarOptions={{
 			keyboardHidesTabBar: true,
-			tabStyle: { flexDirection: 'row', ...getShadow(3), backgroundColor: COLOR.DARK_BLUE }
+			tabStyle: { flexDirection: 'row', backgroundColor: COLOR.DARK_BLUE, ...getShadow(4) }
 		}}>
 		<Tab.Screen
 			name={TABS_NAME.ABOUT_PAGE}

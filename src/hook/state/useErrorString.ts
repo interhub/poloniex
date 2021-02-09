@@ -1,4 +1,3 @@
-import { useIsFocused } from '@react-navigation/native'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { setErrorStringAction } from '../../store/actions'
@@ -13,12 +12,11 @@ export default () => {
 	const setError = (err: string) => {
 		dispatch(setErrorStringAction(err))
 	}
-	const isFocused = useIsFocused()
 	useEffect(() => {
 		return () => {
 			setError('')
 		}
-	}, [isFocused])
+	}, [])
 
 	return { error, setError }
 
