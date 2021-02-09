@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Animated, StyleSheet, Text, View } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
 import TextLine from '../../../components/TextLine';
 import useErrorString from '../../../hook/state/useErrorString';
 import { COLOR } from '../../../vars/COLOR';
