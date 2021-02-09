@@ -27,7 +27,7 @@ const AppNavigator = () => {
 						name={SCREEN_NAME.LOAD_PAGE}
 						component={LoadingPage} />}
 					{isLoaded && <Stack.Screen
-						options={{ ...getScreenAnimation(SCREEN_ANIMATION.TOP) }}
+						options={{ ...getScreenAnimation(SCREEN_ANIMATION.FADE) }}
 						name={SCREEN_NAME.TABS_PAGE}
 						component={TabsNavigator} />}
 				</Stack.Navigator>

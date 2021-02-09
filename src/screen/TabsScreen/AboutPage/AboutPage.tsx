@@ -1,19 +1,44 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import ScrollViewContainer from '../../../components/ScrollViewContainer';
+import TextLine from '../../../components/TextLine';
+import { COLOR } from '../../../vars/COLOR';
+import SIZE from '../../../vars/SIZE';
+import about_info from './about_info';
+import Constants from 'expo-constants';
 
 const AboutPage = () => {
+    const VERSION = Constants.nativeAppVersion
     return (
-        <View style={styles.container}>
-            <Text>AboutPage</Text>
-        </View>
+        <ScrollViewContainer >
+            <View style={styles.container}>
+                <TextLine size={30} >
+                    Ваш универсальный магазин для
+                    </TextLine>
+                <TextLine size={40} bold color={COLOR.GREEN}>
+                    криптоторгов
+                    </TextLine>
+                <TextLine bold style={{ marginVertical: 20 }} >
+                    Торгуйте Bitcoin, Ethereum, USDT и лучшими альткоинами на легендарной криптовалютной бирже.
+                    </TextLine>
+                {about_info.map((text, key) => {
+                    return <TextLine key={key} style={{ marginVertical: 20 }} >
+                        {text}
+                    </TextLine>
+                })}
+                <TextLine style={{ marginVertical: 30 }} center >
+                    Версия {VERSION}
+                </TextLine>
+            </View>
+        </ScrollViewContainer>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        minHeight: SIZE.height,
+        padding: 10
     },
 });
 

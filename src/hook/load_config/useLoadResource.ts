@@ -1,11 +1,11 @@
 import * as SplashScreen from 'expo-splash-screen'
 import { useLayoutEffect, useState } from 'react'
+import waitSleep from '../../config/waitSleep'
 import useCodePush from './useCodePush'
 import useFontLoad from './useFontLoad'
 import useUpdateInfo from './useUpdateInfo'
 
 
-SplashScreen.preventAutoHideAsync()
 
 /**
  * @hook important hook for initialize user store state from server
@@ -15,7 +15,13 @@ export default () => {
 
 	const { syncCodePush } = useCodePush()
 	const { loadFont } = useFontLoad()
-	const { startUpdates } = useUpdateInfo()
+	const { updateTableInfo } = useUpdateInfo()
+
+	const startUpdateCycle = async () => {
+		await waitSleep()
+		await updateTableInfo()
+		startUpdateCycle()
+	}
 
 	const loadAppResource = async () => {
 		try {
@@ -24,9 +30,9 @@ export default () => {
 		} catch (e) {
 			console.warn(e, 'ERR LOAD RESOURCE AND SPASH')
 		} finally {
+			await updateTableInfo()
 			setIsLoaded(true)
-			SplashScreen.hideAsync()
-			startUpdates()
+			// startUpdateCycle() //TODO START CYCLE AFTER STAT API
 		}
 	}
 

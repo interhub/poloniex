@@ -1,7 +1,9 @@
 import { enableScreens } from 'react-native-screens';
 import { LogBox, Platform, UIManager } from 'react-native'
-
+import * as SplashScreen from 'expo-splash-screen'
 export default () => {
+    SplashScreen.preventAutoHideAsync()
+
     enableScreens()
 
     LogBox.ignoreLogs([

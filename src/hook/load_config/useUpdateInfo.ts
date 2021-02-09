@@ -7,13 +7,13 @@ import useErrorString from "../state/useErrorString";
 const useUpdateInfo = () => {
     const { setError } = useErrorString()
     const dispatch = useDispatch()
-    const startUpdates = async () => {
+    const updateTableInfo = async () => {
         try {
             const { data } = await API.getTableInfo()
-            await waitSleep()
             const table_info = Object.keys(data).map((key_value, key_index) => {
                 return { ...data[key_value], name: key_value }
             })
+            console.log(table_info, 'INFO READY')
             dispatch(setTableInfoAction(table_info))
             setError('')
         } catch (e) {
@@ -21,7 +21,7 @@ const useUpdateInfo = () => {
             setError('Ошибка загрузки данных')
         }
     }
-    return { startUpdates }
+    return { updateTableInfo }
 }
 
 export default useUpdateInfo
