@@ -5,9 +5,10 @@ import React from 'react'
 import getScreenAnimation, { SCREEN_ANIMATION } from '../config/getScreenAnimation'
 import navigateRef from '../config/navigateRef'
 import useLoadResource from '../hook/load_config/useLoadResource'
+import LoadingPage from '../screen/LoadingPage/LoadingPage'
 import { COLOR } from '../vars/COLOR'
 import { SCREEN_NAME } from '../vars/SCREEN_NAME'
-import TabsProfileNavigator from './TabsProfileNavigator'
+import TabsNavigator from './TabsNavigator'
 
 const Stack = createStackNavigator()
 
@@ -22,21 +23,20 @@ const AppNavigator = () => {
 		<>
 			<NavigationContainer ref={navigateRef} >
 				<Stack.Navigator
-					screenOptions={{ cardStyle: { backgroundColor: COLOR.WHITE } }}
 					detachInactiveScreens={false}
 					headerMode={'screen'}
 					initialRouteName={SCREEN_NAME.LOAD_PAGE}>
 					<Stack.Screen
 						options={{ ...getScreenAnimation(SCREEN_ANIMATION.TOP) }}
 						name={SCREEN_NAME.LOAD_PAGE}
-						component={TabsProfileNavigator} />
+						component={LoadingPage} />
 					<Stack.Screen
 						options={{ ...getScreenAnimation(SCREEN_ANIMATION.TOP) }}
 						name={SCREEN_NAME.TABS_PAGE}
-						component={TabsProfileNavigator} />
+						component={TabsNavigator} />
 				</Stack.Navigator>
 			</NavigationContainer>
-			<StatusBar style={'dark'} translucent={true} backgroundColor={COLOR.NONE} />
+			<StatusBar style={'light'} translucent={true} backgroundColor={COLOR.NONE} />
 		</>
 	)
 }

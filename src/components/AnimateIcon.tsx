@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Animated, ImageSourcePropType } from 'react-native'
 
-const ICON_SIZE = 40
+const ICON_SIZE = 35
 
 interface PropsIcon {
     source: ImageSourcePropType

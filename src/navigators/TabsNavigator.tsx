@@ -6,6 +6,7 @@ import { useWindowDimensions, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import AnimateIcon from '../components/AnimateIcon'
+import getShadow from '../config/getShadow'
 import AboutPage from '../screen/TabsScreen/AboutPage/AboutPage'
 import TablePage from '../screen/TabsScreen/TablePage/TablePage'
 import { COLOR } from '../vars/COLOR'
@@ -13,33 +14,27 @@ import { TABS_NAME } from '../vars/SCREEN_NAME'
 
 const Tab = createBottomTabNavigator()
 
-const TabsProfileNavigator = () => {
-	return <>
-		<Tab.Navigator
-			screenOptions={{
-				unmountOnBlur: false,
-			}}
-			initialRouteName={TABS_NAME.ABOUT_PAGE}
-			sceneContainerStyle={{ backgroundColor: COLOR.WHITE }}
-			tabBar={(props: BottomTabBarProps) => <BottomTabBar {...props} />}
-			lazy={true}
-			tabBarOptions={{
-				keyboardHidesTabBar: true,
-				activeTintColor: COLOR.BLACK,
-				inactiveTintColor: COLOR.GRAY,
-				tabStyle: { flexDirection: 'row', backgroundColor: COLOR.WHITE }
-			}}>
-			<Tab.Screen
-				name={TABS_NAME.ABOUT_PAGE}
-				component={AboutPage} />
-			<Tab.Screen
-				name={TABS_NAME.TABLE_PAGE}
-				component={TablePage} />
-		</Tab.Navigator>
-		<StatusBar style={'light'} translucent={true} backgroundColor={COLOR.NONE} />
-	</>
+const TabsNavigator = () => {
+	return <Tab.Navigator
+		screenOptions={{
+			unmountOnBlur: false,
+		}}
+		initialRouteName={TABS_NAME.ABOUT_PAGE}
+		sceneContainerStyle={{ backgroundColor: COLOR.DARK_BLUE }}
+		tabBar={(props: BottomTabBarProps) => <BottomTabBar {...props} />}
+		lazy={true}
+		tabBarOptions={{
+			keyboardHidesTabBar: true,
+			tabStyle: { flexDirection: 'row', ...getShadow(3), backgroundColor: COLOR.DARK_BLUE }
+		}}>
+		<Tab.Screen
+			name={TABS_NAME.ABOUT_PAGE}
+			component={AboutPage} />
+		<Tab.Screen
+			name={TABS_NAME.TABLE_PAGE}
+			component={TablePage} />
+	</Tab.Navigator>
 }
-
 
 const TAB_INFO = [
 	{ source: require('../img/icon/1.png'), key: 0 },
@@ -56,14 +51,14 @@ const BottomTabBar = ({ state, tabStyle }: BottomTabBarProps) => {
 
 const TabItem = ({ state, info }: { state: BottomTabBarProps['state'], info: typeof TAB_INFO[0] }) => {
 	const { height } = useWindowDimensions()
-	const PADDING = height * 0.022
+	const PADDING_TABS = height * 0.022
 	const navigation = useNavigation()
 	const { bottom } = useSafeAreaInsets()
 	const IS_FOCUSED = state.index === info.key
-	const ICON_COLOR = IS_FOCUSED ? COLOR.WHITE : COLOR.GREEN
+	const ICON_COLOR = IS_FOCUSED ? COLOR.GREEN : COLOR.WHITE
 
 	return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-		<TouchableOpacity style={{ paddingBottom: bottom + PADDING, paddingTop: PADDING, paddingHorizontal: PADDING }} onPress={() => {
+		<TouchableOpacity style={{ paddingBottom: bottom + PADDING_TABS, paddingTop: PADDING_TABS, paddingHorizontal: PADDING_TABS }} onPress={() => {
 			navigation.navigate(state.routeNames[info.key])
 		}} >
 			<AnimateIcon active={IS_FOCUSED} color={ICON_COLOR} source={info.source} />
@@ -73,4 +68,4 @@ const TabItem = ({ state, info }: { state: BottomTabBarProps['state'], info: typ
 }
 
 
-export default TabsProfileNavigator
+export default TabsNavigator
