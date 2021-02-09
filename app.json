@@ -1,0 +1,12 @@
+{
+  "name": "poloniex",
+  "displayName": "poloniex",
+  "expo": {
+    "name": "poloniex",
+    "slug": "poloniex",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
