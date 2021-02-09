@@ -1,9 +1,8 @@
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import API from '../../api/API';
 import waitSleep from '../../config/waitSleep';
 import { setTableInfoAction } from '../../store/actions';
-import useErrorString from "../state/useErrorString"
+import useErrorString from "../state/useErrorString";
 
 const useUpdateInfo = () => {
     const { setError } = useErrorString()

@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import getScreenAnimation, { SCREEN_ANIMATION } from '../config/getScreenAnimation'
 import navigateRef from '../config/navigateRef'
@@ -18,23 +19,25 @@ const AppNavigator = () => {
 	}
 
 	return (
-		<NavigationContainer ref={navigateRef} >
-			<Stack.Navigator
-				screenOptions={{ cardStyle: { backgroundColor: COLOR.WHITE } }}
-				detachInactiveScreens={false}
-				headerMode={'screen'}
-				initialRouteName={SCREEN_NAME.LOAD_PAGE}>
-				<Stack.Screen
-					options={{ ...getScreenAnimation(SCREEN_ANIMATION.TOP) }}
-					name={SCREEN_NAME.LOAD_PAGE}
-					component={TabsProfileNavigator} />
-				<Stack.Screen
-					options={{ ...getScreenAnimation(SCREEN_ANIMATION.TOP) }}
-					name={SCREEN_NAME.TABS_PAGE}
-					component={TabsProfileNavigator} />
-			</Stack.Navigator>
-		</NavigationContainer>
-
+		<>
+			<NavigationContainer ref={navigateRef} >
+				<Stack.Navigator
+					screenOptions={{ cardStyle: { backgroundColor: COLOR.WHITE } }}
+					detachInactiveScreens={false}
+					headerMode={'screen'}
+					initialRouteName={SCREEN_NAME.LOAD_PAGE}>
+					<Stack.Screen
+						options={{ ...getScreenAnimation(SCREEN_ANIMATION.TOP) }}
+						name={SCREEN_NAME.LOAD_PAGE}
+						component={TabsProfileNavigator} />
+					<Stack.Screen
+						options={{ ...getScreenAnimation(SCREEN_ANIMATION.TOP) }}
+						name={SCREEN_NAME.TABS_PAGE}
+						component={TabsProfileNavigator} />
+				</Stack.Navigator>
+			</NavigationContainer>
+			<StatusBar style={'dark'} translucent={true} backgroundColor={COLOR.NONE} />
+		</>
 	)
 }
 
