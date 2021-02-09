@@ -1,4 +1,4 @@
-package com.poloniex;
+package com.devru.poloniex;
 
 import android.os.Bundle;
 

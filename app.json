@@ -7,19 +7,25 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.devru.poloniex"
+    },
+    "ios": {
+      "bundleIdentifier": "com.devru.poloniex"
+    }
   },
   "orientation": "portrait",
-  "icon": "./scr/img/assets/logo_big.png",
+  "icon": "./assets/logo_big.png",
   "ios": {
-    "supportsTablet": true,
+    "supportsTablet": false,
     "bundleIdentifier": "com.interhub.poloniex"
   },
   "android": {
     "package": "com.interhub.poloniex",
     "googleServicesFile": "./google-services.json",
     "adaptiveIcon": {
-      "foregroundImage": "./scr/img/assets/logo_big.png",
+      "foregroundImage": "./assets/logo_big.png",
       "backgroundColor": "#092838"
     }
   },
