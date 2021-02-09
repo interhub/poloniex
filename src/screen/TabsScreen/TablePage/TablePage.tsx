@@ -13,11 +13,10 @@ import { TABLE_SIZE } from './TABLE_SIZE';
 
 
 const TablePage = () => {
-    const { navigate } = useNavigation()
-    const goToChart = () => navigate(SCREEN_NAME.CHART_PAGE)
+
     const { table_info } = useSelectorProp('table_info')
     const RENDER_NUMS = Math.ceil(SIZE.height / TABLE_SIZE.ROW_HEIGHT) || 15
-    console.log(RENDER_NUMS)
+
     return (
         <View style={styles.container}>
             <ScrollViewContainer bounces={false} horizontal>
@@ -34,12 +33,14 @@ const TablePage = () => {
                     />
                 </View>
             </ScrollViewContainer>
-            {/*         <ButtonCustom onPress={goToChart}>
-                            Go to CHART
-                        </ButtonCustom> */}
         </View>
     );
 }
+
+// <ButtonCustom onPress={goToChart}>
+//                             Go to CHART
+//                         </ButtonCustom>
+
 
 const styles = StyleSheet.create({
     container: {
