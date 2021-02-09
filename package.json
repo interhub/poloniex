@@ -1,11 +1,21 @@
 {
   "main": "index.js",
   "scripts": {
+    "start:server": "react-native start",
+    "start:expo": "expo start",
+    "publish:expo": "expo publish -t managed",
     "android": "react-native run-android",
+    "android:release": "react-native run-android --variant=release",
     "ios": "react-native run-ios",
-    "web": "expo start --web",
-    "start": "react-native start",
-    "test": "jest"
+    "eject": "expo eject --no-install",
+    "pod:install": "npx pod-install",
+    "codepush:android": "appcenter codepush release-react -a interhub/liverpool -m",
+    "codepush:ios": "appcenter codepush release-react -a interhub/liverpool-ios --plist-file ios/liverpool/Info.plist -m",
+    "codepush": "npm run codepush:android && npm run codepush:ios",
+    "codepush:debug": "code-push debug android",
+    "test": "jest src/test/*",
+    "documentation:type": "typedoc --readme README.md --name Liverpool --out ./docs/ --tsconfig tsconfig.json",
+    "documentation:word": "cd doc_builder && node builder.js"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.4",
