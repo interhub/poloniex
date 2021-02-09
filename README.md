@@ -8,7 +8,7 @@
 > 2. backend developer: <br>
 > <https://github.com/dmitrvk> <br>
 > Dmitry Kalyukov
-> 3. ...
+> 3. ... d
 
 ## Documentation link resources
 
