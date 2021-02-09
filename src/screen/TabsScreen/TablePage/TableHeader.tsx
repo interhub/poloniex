@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import TextLine from '../../../components/TextLine';
 import TableBoxItem from './TableBoxItem';
 import TABLE_CETEGORIES from './TABLE_CETEGORIES';
 

@@ -9,6 +9,7 @@ import { COLOR } from '../../../vars/COLOR';
 import { SCREEN_NAME } from '../../../vars/SCREEN_NAME';
 import SIZE from '../../../vars/SIZE';
 import TableBoxItem from './TableBoxItem';
+import TableErrorBoard from './TableErrorBoard';
 import TableHeader from './TableHeader';
 import TableRow from './TableRow';
 import { TABLE_SIZE } from './TABLE_SIZE';
@@ -19,9 +20,9 @@ const TablePage = () => {
     const { table_info } = useSelectorProp('table_info')
     const RENDER_NUMS = Math.ceil(SIZE.height / TABLE_SIZE.ROW_HEIGHT) || 15
     const { updateTableInfo } = useUpdateInfo()
-
     return (
         <View style={styles.container}>
+            <TableErrorBoard />
             <ScrollViewContainer
                 bounces={false}
                 horizontal>
