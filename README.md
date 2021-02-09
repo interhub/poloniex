@@ -5,10 +5,7 @@
 > 1. frontend developer: <br>
 > <https://github.com/interhub> <br>
 > Stepan Turchenko
-> 2. backend developer: <br>
-> <https://github.com/dmitrvk> <br>
-> Dmitry Kalyukov
-> 3. ... d
+> 2. ... 
 
 ## Documentation link resources
 
@@ -16,7 +13,6 @@
 - <a>[react native doc](https://reactnative.dev/docs/getting-started)</a>
 - <a>[react navigation doc](https://reactnavigation.org/docs/getting-started/)</a>
 - <a>[expo react native doc](https://docs.expo.io/)</a>
-- <a>[react native firebase doc](https://rnfirebase.io/)</a>
 - <a>[typescript doc](https://www.typescriptlang.org/docs/)</a>
 - <a>[react native code push doc](https://github.com/microsoft/react-native-code-push/tree/master/docs)</a>
 - <a>[react testing enzyme doc](https://enzymejs.github.io/enzyme/)</a>
@@ -24,7 +20,6 @@
 - <a>[react native maps doc](https://github.com/react-native-maps/react-native-maps)</a>
 - <a>[redux doc](https://redux.js.org/introduction/getting-started)</a>
 - <a>[redux tool kit doc](https://redux-toolkit.js.org/introduction/quick-start)</a>
-- <a>[formik doc](https://formik.org/)</a>  
 
 # 1. NPM **command**
 
@@ -72,22 +67,6 @@ get full code for once file to word doc (google doc) from .tsx ext
   * img - (icons / images / background)
   * navigators - (react navigation navigators)
   * screen - (all application screens)
-    * CartPage - (cart page before order payment)
-    * DemoMenu - (screen for display menu before auth to start app. Added after ios access)
-    * Login - (Start login application screen for phone input)
-    * MapPage - (Map page for change address state or find user location)
-    * Pay - (react navigation pay screen navigator screens)
-      * PayInput - (input order info screen before payment)
-      * PayProcess - (pay web page after confirm order)
-      * PaySuccess - (screen after success payment from PaymentProcess)
-    * ProductPage - (product item page detail info and recomendations)
-    * Registr - (registration start application screen)
-    * SalePage - (sale info web info from server promotions state detail)
-    * SmsAuth - (sms access input code page for resending code and confirm code)
-    * TabsProfile - (react navigation tabs custom navigator tabs)
-      * HistoryTab - (left user loginned tabs for detail order history and it status)
-      * MenuTab - (start loginned center tab for display accessed menu and promotions with animate header)
-      * ProfileTab - (right user profile tab for change user info and logout)
   * selector - (reselect or redux tool kit selector)
   * store - (redux or redux tool kit config for store, state, reducer, actions)
   * test - (integration, unit, hook test and mocks)
@@ -175,7 +154,7 @@ export default __DEV__ ? ProviderApp : codePushProvider
 //change splash screen state by expo-splash-screen doc
 SplashScreen.preventAutoHideAsync()
 
-onst useCodePush = () => {
+const useCodePush = () => {
  const syncCodePush = async (): Promise<boolean> => {
   return new Promise((ok) => {
    codePush.sync({ installMode: codePush.InstallMode.IMMEDIATE, },
@@ -196,23 +175,3 @@ onst useCodePush = () => {
 }
 export default useCodePush
 ```
-
-<br>
-
-# 5. **Firebase** configuration
-
-## firebase project **url**
-
-- <https://console.firebase.google.com/project/liverpool-e2d58/settings/general/android:com.interhub.liverpool>
-
-## **android** config file
-
-- [/android/app/google-services.json](/android/app/google-services.json)
-
-## **ios** config file
-
-- [/ios/liverpool/GoogleService-Info.pist](/ios/liverpool/GoogleService-Info.pist)
-
-## Firebase **SDK** configuration
-
-- <https://rnfirebase.io/>
