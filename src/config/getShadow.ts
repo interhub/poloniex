@@ -8,4 +8,4 @@ export default function getShadow(val = 1): Object {
 		shadowOpacity: val / 5,
 		shadowOffset: { height: 1, width: 0 }
 	}
-}
+} 

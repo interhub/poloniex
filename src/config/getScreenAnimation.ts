@@ -1,3 +1,4 @@
+import { COLOR } from './../vars/COLOR';
 import { CardStyleInterpolators, StackNavigationOptions, TransitionSpecs } from '@react-navigation/stack'
 
 /** 
@@ -26,7 +27,7 @@ export default (animation: SCREEN_ANIMATION = SCREEN_ANIMATION.NONE, swipe = tru
 	animationTypeForReplace: 'push',
 	gestureResponseDistance: { vertical: 0, horizontal: 20 },
 	cardStyle: {
-		backgroundColor: '#fff'
+		backgroundColor: COLOR.DARK_BLUE
 	}
 })
 

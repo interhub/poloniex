@@ -1,6 +1,6 @@
 {
   "name": "poloniex",
-  "displayName": "poloniex",
+  "displayName": "Poloniex",
   "expo": {
     "name": "poloniex",
     "slug": "poloniex",
@@ -8,5 +8,28 @@
     "assetBundlePatterns": [
       "**/*"
     ]
+  },
+  "orientation": "portrait",
+  "icon": "./scr/img/assets/logo_big.png",
+  "ios": {
+    "supportsTablet": true,
+    "bundleIdentifier": "com.interhub.poloniex"
+  },
+  "android": {
+    "package": "com.interhub.poloniex",
+    "googleServicesFile": "./google-services.json",
+    "adaptiveIcon": {
+      "foregroundImage": "./scr/img/assets/logo_big.png",
+      "backgroundColor": "#092838"
+    }
+  },
+  "androidNavigationBar": {
+    "backgroundColor": "#092838",
+    "barStyle": "dark-content"
+  },
+  "splash": {
+    "image": "./scr/img/assets/splash.png",
+    "resizeMode": "cover",
+    "backgroundColor": "#092838"
   }
 }

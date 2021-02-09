@@ -2,16 +2,14 @@ import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/b
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { Animated, useWindowDimensions, View } from 'react-native'
+import { useWindowDimensions, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import MyIcon from '../components/MyIcon'
-import HistoryTab from '../screen/TabsProfile/HistoryTab/HistoryTab'
-import MenuTab from '../screen/TabsProfile/MenuTab/MenuTab'
-import ProfileTab from '../screen/TabsProfile/ProfileTab/ProfileTab'
+import AnimateIcon from '../components/AnimateIcon'
+import AboutPage from '../screen/TabsScreen/AboutPage/AboutPage'
+import TablePage from '../screen/TabsScreen/TablePage/TablePage'
 import { COLOR } from '../vars/COLOR'
-import { SCREEN_NAME_TABS } from '../vars/SCREEN_NAME'
-import { ICON_SIZE } from '../vars/SIZE'
+import { TABS_NAME } from '../vars/SCREEN_NAME'
 
 const Tab = createBottomTabNavigator()
 
@@ -21,25 +19,22 @@ const TabsProfileNavigator = () => {
 			screenOptions={{
 				unmountOnBlur: false,
 			}}
-			initialRouteName={SCREEN_NAME_TABS.MENU_TAB}
+			initialRouteName={TABS_NAME.ABOUT_PAGE}
 			sceneContainerStyle={{ backgroundColor: COLOR.WHITE }}
+			tabBar={(props: BottomTabBarProps) => <BottomTabBar {...props} />}
+			lazy={true}
 			tabBarOptions={{
 				keyboardHidesTabBar: true,
 				activeTintColor: COLOR.BLACK,
 				inactiveTintColor: COLOR.GRAY,
 				tabStyle: { flexDirection: 'row', backgroundColor: COLOR.WHITE }
-			}}
-			tabBar={props => <BottomTabBar {...props} />}
-			lazy={true}>
+			}}>
 			<Tab.Screen
-				name={SCREEN_NAME_TABS.HISTORY_TAB}
-				component={HistoryTab} />
+				name={TABS_NAME.ABOUT_PAGE}
+				component={AboutPage} />
 			<Tab.Screen
-				name={SCREEN_NAME_TABS.MENU_TAB}
-				component={MenuTab} />
-			<Tab.Screen
-				name={SCREEN_NAME_TABS.PROFILE_TAB}
-				component={ProfileTab} />
+				name={TABS_NAME.TABLE_PAGE}
+				component={TablePage} />
 		</Tab.Navigator>
 		<StatusBar style={'light'} translucent={true} backgroundColor={COLOR.NONE} />
 	</>
@@ -47,9 +42,8 @@ const TabsProfileNavigator = () => {
 
 
 const TAB_INFO = [
-	{ source: require('../img/icon/tabs/1.png'), key: 0 },
-	{ source: require('../img/icon/tabs/2.png'), key: 1 },
-	{ source: require('../img/icon/tabs/3.png'), key: 2 },
+	{ source: require('../img/icon/1.png'), key: 0 },
+	{ source: require('../img/icon/2.png'), key: 1 },
 ]
 
 const BottomTabBar = ({ state, tabStyle }: BottomTabBarProps) => {
@@ -60,20 +54,19 @@ const BottomTabBar = ({ state, tabStyle }: BottomTabBarProps) => {
 	)
 }
 
-
 const TabItem = ({ state, info }: { state: BottomTabBarProps['state'], info: typeof TAB_INFO[0] }) => {
 	const { height } = useWindowDimensions()
 	const PADDING = height * 0.022
 	const navigation = useNavigation()
 	const { bottom } = useSafeAreaInsets()
 	const IS_FOCUSED = state.index === info.key
-	const ICON_COLOR = IS_FOCUSED ? COLOR.BLACK_LIGHT : COLOR.GRAY
+	const ICON_COLOR = IS_FOCUSED ? COLOR.WHITE : COLOR.GREEN
 
 	return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
 		<TouchableOpacity style={{ paddingBottom: bottom + PADDING, paddingTop: PADDING, paddingHorizontal: PADDING }} onPress={() => {
 			navigation.navigate(state.routeNames[info.key])
 		}} >
-			<MyIcon active={IS_FOCUSED} size={ICON_SIZE} color={ICON_COLOR} source={info.source} />
+			<AnimateIcon active={IS_FOCUSED} color={ICON_COLOR} source={info.source} />
 		</TouchableOpacity>
 	</View>
 

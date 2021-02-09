@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { Animated } from 'react-native'
 
+/** 
+animate zoom image Animated hook from native react native
+*/
 const useAnimateImageZoom = () => {
     const pos_state = { start: 1.1, end: 1 }
     const duration = 10000

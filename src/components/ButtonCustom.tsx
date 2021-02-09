@@ -1,57 +1,48 @@
 import React from 'react'
-import { Button } from 'react-native-paper'
+import { TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native'
+import useLoadingState from '../hook/state/useLoadingState'
 import { COLOR } from '../vars/COLOR'
-import TextLine from './TextLine'
+import TextLine, { TextLinePropsType } from './TextLine'
 
-//@ts-ignore
-interface ButtonOrangePropsType extends React.ComponentPropsWithoutRef<typeof Button> {
-    disabled?: boolean,
-    mode?: 'outlined' | 'contained' | 'text',
-    loading?: boolean,
-    onPress?: () => void,
-    icon?: () => JSX.Element,
-    bold?: boolean,
-    color?: string,
-    labaelColor?: string
-    children: string | JSX.Element | undefined | any
-    accessibilityComponentType?: any
-    accessibilityTraits?: any
+const BTN_SIZE = 55
+interface ButtonCustomPropsType extends React.ComponentPropsWithoutRef<typeof TouchableOpacity> {
+	disabled?: boolean
+	loading?: boolean
+	icon?: () => JSX.Element
+	onPress?: () => void
+	textProps?: TextLinePropsType
+	children: string
 }
 
 
-const ButtonCustom = ({
-	children = '', bold = true, labaelColor = COLOR.BLACK_LIGHT, disabled = false, mode = 'contained', loading = false, uppercase = false, onPress, icon, color = COLOR.YELLOW, style = {}, ...props
-}: ButtonOrangePropsType) => {
+const ButtonCustom = (props: ButtonCustomPropsType) => {
+	const { disabled, onPress, children, textProps = {} } = props
+	const { loading } = useLoadingState()
+
+	const onPressHandler = () => {
+		if (!disabled && onPress) onPress()
+	}
+
 	return (
-		<Button
-			accessibilityComponentType
-			accessibilityTraits
-			onPress={() => {
-				if (!disabled && onPress) onPress()
-			}}
-			loading={loading}
-			mode={mode}
-			contentStyle={{ height: '100%' }}
-			disabled={false}
-			uppercase={uppercase}
-			compact
-			icon={icon}
-			style={[{
-				elevation: 1,
-				width: '100%',
-				height: 55,
-				borderRadius: 10,
-				borderWidth: mode === 'outlined' ? 1 : 0,
-				borderColor: mode === 'outlined' ? COLOR.GRAY : '#fff',
-			}, (disabled ? {
-				borderColor: COLOR.GRAY,
-				backgroundColor: COLOR.GRAY
-			} : {}), style]}
-			color={color}
-			{...props}
-		>
-			{!loading ? <TextLine style={[props.labelStyle]} bold={bold} size={18} color={labaelColor}>{children}</TextLine> : ''}
-		</Button>)
+		<TouchableOpacity
+			onPress={onPressHandler}
+			style={[styles.btnBox, props.style]}
+			{...props}>
+			{!loading && <TextLine numberOfLines={1} {...textProps} >{children}</TextLine>}
+			{loading && <ActivityIndicator color={COLOR.GREEN} />}
+		</TouchableOpacity>)
 }
+
+const styles = StyleSheet.create({
+	btnBox: {
+		width: '100%',
+		height: BTN_SIZE,
+		borderRadius: 10,
+		borderWidth: 1,
+		borderColor: COLOR.GREEN,
+		alignItems: 'center',
+		justifyContent: 'center'
+	}
+})
 
 export default React.memo(ButtonCustom)

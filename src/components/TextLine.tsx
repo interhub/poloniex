@@ -1,11 +1,8 @@
 import React from 'react'
 import { Text } from 'react-native'
-import { shallowEqual } from 'react-redux'
-import { isEqual } from '../config/isEqual'
 import { FONT_NAME } from '../font/FONT_NAME'
 import { COLOR } from '../vars/COLOR'
-
-interface TextLinePropsType extends React.ComponentPropsWithoutRef<typeof Text> {
+export interface TextLinePropsType extends React.ComponentPropsWithoutRef<typeof Text> {
 	children: string | JSX.Element | any,
 	color?: string,
 	size?: number,
@@ -14,18 +11,25 @@ interface TextLinePropsType extends React.ComponentPropsWithoutRef<typeof Text> 
 	center?: boolean,
 }
 
-const TextLine = ({ children, tint, color = COLOR.BLACK_LIGHT, size = 18, bold = false, center, ...props }: TextLinePropsType) => {
+const TextLine = (props: TextLinePropsType) => {
+
+	const textStyle = getTextStyleByProp(props)
+
 	return (<Text
 		{...props}
-		style={[ {
-			color,
-			fontSize: size,
-			textAlign: center ? 'center' : 'left',
-			fontFamily: bold ? FONT_NAME.BOLD : (tint ? FONT_NAME.TINT : FONT_NAME.NORM),
-		},props.style,]}
-	>
-		{children}
+		style={textStyle}>
+		{props.children}
 	</Text>)
 }
 
-export default React.memo(TextLine, shallowEqual)
+const getTextStyleByProp = ({ color = COLOR.WHITE, size = 18, center = false, bold = false, tint = false, ...props }: TextLinePropsType): TextLinePropsType['style'] => {
+	return [{
+		color,
+		fontSize: size,
+		textAlign: center ? 'center' : 'left',
+		fontFamily: bold ? FONT_NAME.BOLD : (tint ? FONT_NAME.TINT : FONT_NAME.NORM),
+	},
+	props.style]
+}
+
+export default React.memo(TextLine)

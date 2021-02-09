@@ -1,7 +1,10 @@
-import {Alert} from 'react-native'
+import { Alert } from 'react-native'
 
 const TIMEOUT = 1000
 
+/** 
+alert display message
+*/
 export default ((message = '', title = '') => {
 	let ready = true
 	return (message = '', title = '') => {
@@ -11,6 +14,6 @@ export default ((message = '', title = '') => {
 			ready = true
 		}, TIMEOUT)
 
-		Alert.alert(title, message, [{text: 'OK', onPress: () => console.log('OK Pressed')}], {cancelable: false})
+		Alert.alert(title, message, [{ text: 'OK', onPress: () => console.log('OK') }], { cancelable: false })
 	}
 })()

@@ -7,14 +7,15 @@ import { COLOR } from '../vars/COLOR'
 interface ImageHocProps extends React.ComponentPropsWithoutRef<typeof Image> {
 	exist?: boolean
 }
+
 const ImageHoc = ({ exist = true, ...props }: ImageHocProps) => {
 	const [isLoad, setIsLoad] = useState(false)
 	const onLoadStart = () => setIsLoad(true)
 	const onLoadEnd = () => setIsLoad(false)
 	return (
 		<>
-			{isLoad && <ActivityIndicator style={styles.indicator} color={COLOR.BLACK_LIGHT} />}
-			{!exist && <View style={styles.indicator} ><MaterialCommunityIcons name="food" size={45} color={COLOR.BLACK_LIGHT} /></View>}
+			{isLoad && <ActivityIndicator style={styles.iconBox} color={COLOR.GREEN} />}
+			{!exist && <View style={styles.iconBox} ><MaterialCommunityIcons name="image" size={45} color={COLOR.DARK_BLUE} /></View>}
 			{exist && <Image
 				{...props}
 				onLoadStart={onLoadStart}
@@ -26,7 +27,7 @@ const ImageHoc = ({ exist = true, ...props }: ImageHocProps) => {
 }
 
 const styles = StyleSheet.create({
-	indicator: {
+	iconBox: {
 		zIndex: 2000,
 		justifyContent: 'center',
 		alignItems: 'center',

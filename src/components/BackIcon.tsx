@@ -5,7 +5,7 @@ import { TouchableOpacity, View } from 'react-native'
 import { COLOR } from '../vars/COLOR'
 import TextLine from './TextLine'
 
-export const HeaderBackIcons = React.memo(({ color = COLOR.BLACK_LIGHT, title = '' }: { color?: string, title?: string }) => {
+export const HeaderBackIcons = React.memo(({ color = COLOR.WHITE, title = '' }: { color?: string, title?: string }) => {
 	const { goBack } = useNavigation()
 	return <View >
 		<TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start' }} onPress={goBack}>
