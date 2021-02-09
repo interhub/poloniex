@@ -9,8 +9,8 @@ const DividerCustom = ({ style }: { style?: ViewStyle }) => {
 
 const styles = StyleSheet.create({
 	line: {
-		height: 1,
-		backgroundColor: COLOR.GRAY,
+		height: 0.5,
+		backgroundColor: COLOR.GRAY_LIGHT,
 		width: '100%'
 	}
 })

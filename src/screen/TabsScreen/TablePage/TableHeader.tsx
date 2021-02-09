@@ -6,8 +6,8 @@ import TABLE_CETEGORIES from './TABLE_CETEGORIES';
 
 const TableHeader = () => {
     return <View style={{ flexDirection: 'row' }} >
-        {TABLE_CETEGORIES.map((name, key) => {
-            return <TableBoxItem name={name} key={key} />
+        {TABLE_CETEGORIES.map((value, key) => {
+            return <TableBoxItem value={value} key={key} />
         })}
     </View >
 }
