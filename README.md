@@ -5,8 +5,13 @@
 > 1. frontend developer: <br>
 > <https://github.com/interhub> <br>
 > Stepan Turchenko
-> 2. ... 
+> 2. ...
 
+> !!! developed provide to Mac X OS, for android project build you should be change <br>
+> ./android/local.properties
+> <br>
+> or remove it file.
+ 
 ## Documentation link resources
 
 - <a>[react doc](https://reactjs.org/docs/getting-started.html)</a>
