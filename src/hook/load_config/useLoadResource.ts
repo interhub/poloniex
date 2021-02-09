@@ -15,7 +15,7 @@ export default () => {
 
 	const { syncCodePush } = useCodePush()
 	const { loadFont } = useFontLoad()
-	const { startUpdates } = useUpdateInfo()
+	// const { startUpdates } = useUpdateInfo()
 
 	const loadAppResource = async () => {
 		try {
@@ -26,7 +26,7 @@ export default () => {
 		} finally {
 			setIsLoaded(true)
 			SplashScreen.hideAsync()
-			startUpdates()
+			// startUpdates()
 		}
 	}
 

@@ -8,6 +8,7 @@ import setUpConfig from './src/config/setUpConfig'
 import AppNavigator from './src/navigators/AppNavigator'
 import { persistor, store } from './src/store/store'
 import IS_IOS from './src/vars/IS_IOS'
+import 'react-native-gesture-handler';
 
 setUpConfig()
 
