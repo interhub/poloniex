@@ -9,13 +9,13 @@ import AppNavigator from './src/navigators/AppNavigator'
 import { persistor, store } from './src/store/store'
 import IS_IOS from './src/vars/IS_IOS'
 import 'react-native-gesture-handler';
-
 setUpConfig()
 
 const ProviderApp = () => {
   return (
     <KeyboardAvoidingView style={[{ flex: 1 }]} behavior={IS_IOS ? 'height' : undefined}>
       <ReduxProvider store={store}>
+
         <PersistGate loading={null} persistor={persistor}>
           <AppNavigator />
         </PersistGate>

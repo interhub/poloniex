@@ -13,7 +13,6 @@ const useUpdateInfo = () => {
             const table_info = Object.keys(data).map((key_value, key_index) => {
                 return { ...data[key_value], name: key_value }
             })
-            console.log(table_info, 'INFO READY')
             dispatch(setTableInfoAction(table_info))
             setError('')
         } catch (e) {

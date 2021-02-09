@@ -4,11 +4,10 @@ import ScrollViewContainer from '../../../components/ScrollViewContainer';
 import TextLine from '../../../components/TextLine';
 import { COLOR } from '../../../vars/COLOR';
 import SIZE from '../../../vars/SIZE';
+import AboutFooter from './AboutFooter';
 import about_info from './about_info';
-import Constants from 'expo-constants';
 
 const AboutPage = () => {
-    const VERSION = Constants.nativeAppVersion
     return (
         <ScrollViewContainer >
             <View style={styles.container}>
@@ -26,9 +25,7 @@ const AboutPage = () => {
                         {text}
                     </TextLine>
                 })}
-                <TextLine style={{ marginVertical: 30 }} center >
-                    Версия {VERSION}
-                </TextLine>
+                <AboutFooter />
             </View>
         </ScrollViewContainer>
     );
