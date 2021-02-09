@@ -16,8 +16,7 @@ interface ButtonCustomPropsType extends React.ComponentPropsWithoutRef<typeof To
 
 
 const ButtonCustom = (props: ButtonCustomPropsType) => {
-	const { disabled, onPress, children, textProps = {} } = props
-	const { loading } = useLoadingState()
+	const { disabled, onPress, children, textProps = {}, loading } = props
 
 	const onPressHandler = () => {
 		if (!disabled && onPress) onPress()
@@ -28,7 +27,7 @@ const ButtonCustom = (props: ButtonCustomPropsType) => {
 			onPress={onPressHandler}
 			style={[styles.btnBox, props.style]}
 			{...props}>
-			{!loading && <TextLine numberOfLines={1} {...textProps} >{children}</TextLine>}
+			{!loading && <TextLine numberOfLines={1} color={COLOR.GREEN} {...textProps} >{children}</TextLine>}
 			{loading && <ActivityIndicator color={COLOR.GREEN} />}
 		</TouchableOpacity>)
 }

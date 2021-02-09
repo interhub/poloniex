@@ -4,7 +4,7 @@ import { TableInfoItemType } from '../type/types'
 import { LOCATION } from '../vars/LOCATION'
 
 
-type TableInfoResponse = {
+export type TableInfoResponse = {
 	[T in string]: TableInfoItemType
 }
 class ToolsAPI {

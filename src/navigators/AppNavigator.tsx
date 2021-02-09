@@ -5,6 +5,7 @@ import React from 'react'
 import getScreenAnimation, { SCREEN_ANIMATION } from '../config/getScreenAnimation'
 import navigateRef from '../config/navigateRef'
 import useLoadResource from '../hook/load_config/useLoadResource'
+import ChartPage from '../screen/ChartPage/ChartPage'
 import LoadingPage from '../screen/LoadingPage/LoadingPage'
 import { COLOR } from '../vars/COLOR'
 import { SCREEN_NAME } from '../vars/SCREEN_NAME'
@@ -26,10 +27,16 @@ const AppNavigator = () => {
 						options={{ ...getScreenAnimation(SCREEN_ANIMATION.TOP) }}
 						name={SCREEN_NAME.LOAD_PAGE}
 						component={LoadingPage} />}
-					{isLoaded && <Stack.Screen
-						options={{ ...getScreenAnimation(SCREEN_ANIMATION.FADE) }}
-						name={SCREEN_NAME.TABS_PAGE}
-						component={TabsNavigator} />}
+					{isLoaded && <>
+						<Stack.Screen
+							options={{ ...getScreenAnimation(SCREEN_ANIMATION.FADE) }}
+							name={SCREEN_NAME.TABS_PAGE}
+							component={TabsNavigator} />
+						<Stack.Screen
+							options={{ ...getScreenAnimation(SCREEN_ANIMATION.LEFT) }}
+							name={SCREEN_NAME.CHART_PAGE}
+							component={ChartPage} />
+					</>}
 				</Stack.Navigator>
 			</NavigationContainer>
 			<StatusBar style={'light'} translucent={true} backgroundColor={COLOR.NONE} />
