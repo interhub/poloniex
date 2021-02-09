@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 interface ScrollViewContainerProps extends React.ComponentPropsWithoutRef<typeof ScrollView> {
-    children: JSX.Element
+    children: React.ReactNode
 }
 
 const ScrollViewContainer = (props: ScrollViewContainerProps) => {

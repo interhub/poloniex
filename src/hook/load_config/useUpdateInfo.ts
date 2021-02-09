@@ -18,7 +18,6 @@ const useUpdateInfo = () => {
     const updateTableInfo = async () => {
         try {
             const { data } = await API.getTableInfo()
-            console.log(JSON.stringify(convertDataObjectType(data), null, ' '), 'INFO READY')
             dispatch(setTableInfoAction(convertDataObjectType(data)))
             setError('')
         } catch (e) {

@@ -3,7 +3,7 @@ import { Text } from 'react-native'
 import { FONT_NAME } from '../font/FONT_NAME'
 import { COLOR } from '../vars/COLOR'
 export interface TextLinePropsType extends React.ComponentPropsWithoutRef<typeof Text> {
-	children: string | JSX.Element | any,
+	children?: string | JSX.Element | any,
 	color?: string,
 	size?: number,
 	bold?: boolean,

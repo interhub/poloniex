@@ -32,7 +32,7 @@ export default () => {
 		} finally {
 			await updateTableInfo()
 			setIsLoaded(true)
-			// startUpdateCycle() //TODO START CYCLE AFTER STAT API
+			startUpdateCycle()
 		}
 	}
 

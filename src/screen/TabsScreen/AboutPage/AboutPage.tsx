@@ -1,10 +1,13 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import Animated from 'react-native-reanimated';
+import ImageHoc from '../../../components/ImageHoc';
 import ScrollViewContainer from '../../../components/ScrollViewContainer';
 import TextLine from '../../../components/TextLine';
 import { COLOR } from '../../../vars/COLOR';
 import SIZE from '../../../vars/SIZE';
 import AboutFooter from './AboutFooter';
+import AboutImage from './AboutImage';
 import about_info from './about_info';
 
 const AboutPage = () => {
@@ -16,16 +19,17 @@ const AboutPage = () => {
                     </TextLine>
                 <TextLine size={40} bold color={COLOR.GREEN}>
                     криптоторгов
-                    </TextLine>
+                </TextLine>
                 <TextLine bold style={{ marginVertical: 20 }} >
                     Торгуйте Bitcoin, Ethereum, USDT и лучшими альткоинами на легендарной криптовалютной бирже.
-                    </TextLine>
+                </TextLine>
                 {about_info.map((text, key) => {
                     return <TextLine key={key} style={{ marginVertical: 20 }} >
                         {text}
                     </TextLine>
                 })}
                 <AboutFooter />
+                <AboutImage />
             </View>
         </ScrollViewContainer>
     );
