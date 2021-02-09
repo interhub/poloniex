@@ -1,9 +1,11 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, RefreshControl, StyleSheet, View } from 'react-native';
 import ScrollViewContainer from '../../../components/ScrollViewContainer';
 import TextLine from '../../../components/TextLine';
+import useUpdateInfo from '../../../hook/load_config/useUpdateInfo';
 import { useSelectorProp } from '../../../hook/state/useSelectorProp';
+import { COLOR } from '../../../vars/COLOR';
 import { SCREEN_NAME } from '../../../vars/SCREEN_NAME';
 import SIZE from '../../../vars/SIZE';
 import TableBoxItem from './TableBoxItem';
@@ -16,13 +18,17 @@ const TablePage = () => {
 
     const { table_info } = useSelectorProp('table_info')
     const RENDER_NUMS = Math.ceil(SIZE.height / TABLE_SIZE.ROW_HEIGHT) || 15
+    const { updateTableInfo } = useUpdateInfo()
 
     return (
         <View style={styles.container}>
-            <ScrollViewContainer bounces={false} horizontal>
+            <ScrollViewContainer
+                bounces={false}
+                horizontal>
                 <View>
                     <TableHeader />
                     <FlatList
+                        refreshControl={<RefreshControl colors={[COLOR.GREEN]} refreshing={false} onRefresh={updateTableInfo} />}
                         windowSize={RENDER_NUMS}
                         initialNumToRender={RENDER_NUMS}
                         data={table_info}

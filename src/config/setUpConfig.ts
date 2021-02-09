@@ -9,6 +9,7 @@ export default () => {
     LogBox.ignoreLogs([
         'Non-serializable values',
         '_reactNativeCodePush.default.sync',
+        'Native splash screen is already hidden'
     ])
 
     if (Platform.OS === 'android') {

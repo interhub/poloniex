@@ -16,14 +16,14 @@ const TableRow = ({ item }: { item: TableInfoItemType }) => {
     const goToChart = () => navigate(SCREEN_NAME.CHART_PAGE, { id: item?.id })
 
     return <>
-        <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity onPress={goToChart} style={{ width: TABLE_SIZE.BOX_WIDTH, height: TABLE_SIZE.ROW_HEIGHT }} >
+        <TouchableOpacity onPress={goToChart} style={{ flexDirection: 'row', overflow: 'hidden' }}>
+            <View style={{ width: TABLE_SIZE.BOX_WIDTH, height: TABLE_SIZE.ROW_HEIGHT }} >
                 <TableBoxItem color={COLOR.GREEN} bold value={item?.name} />
-            </TouchableOpacity>
+            </View>
             <TableBoxItem isAnimate value={item?.last} />
             <TableBoxItem isAnimate value={item?.highestBid} />
             <TableBoxItem isAnimate value={item?.percentChange} />
-        </View>
+        </TouchableOpacity>
         <DividerCustom />
     </>
 }

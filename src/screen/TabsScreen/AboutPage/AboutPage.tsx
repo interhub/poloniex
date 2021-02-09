@@ -8,6 +8,7 @@ import { COLOR } from '../../../vars/COLOR';
 import SIZE from '../../../vars/SIZE';
 import AboutFooter from './AboutFooter';
 import AboutImage from './AboutImage';
+import AboutLink from './AboutLink';
 import about_info from './about_info';
 
 const AboutPage = () => {
@@ -29,6 +30,7 @@ const AboutPage = () => {
                     </TextLine>
                 })}
                 <AboutFooter />
+                <AboutLink />
                 <AboutImage />
             </View>
         </ScrollViewContainer>

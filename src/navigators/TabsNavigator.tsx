@@ -22,7 +22,7 @@ const TabsNavigator = () => {
 		initialRouteName={TABS_NAME.ABOUT_PAGE}
 		sceneContainerStyle={{ backgroundColor: COLOR.DARK_BLUE }}
 		tabBar={(props: BottomTabBarProps) => <BottomTabBar {...props} />}
-		lazy={true}
+		lazy={false}
 		tabBarOptions={{
 			keyboardHidesTabBar: true,
 			tabStyle: { flexDirection: 'row', backgroundColor: COLOR.DARK_BLUE, ...getShadow(4) }
