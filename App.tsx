@@ -15,7 +15,6 @@ const ProviderApp = () => {
   return (
     <KeyboardAvoidingView style={[{ flex: 1 }]} behavior={IS_IOS ? 'height' : undefined}>
       <ReduxProvider store={store}>
-
         <PersistGate loading={null} persistor={persistor}>
           <AppNavigator />
         </PersistGate>
