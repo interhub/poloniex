@@ -58,14 +58,17 @@ const TabItem = ({ state, info }: { state: BottomTabBarProps['state'], info: typ
 	const ICON_COLOR = IS_FOCUSED ? COLOR.GREEN : COLOR.WHITE
 
 	return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-		<TouchableOpacity style={{ paddingBottom: bottom + PADDING_TABS, paddingTop: PADDING_TABS, paddingHorizontal: PADDING_TABS }} onPress={() => {
-			navigation.navigate(state.routeNames[info.key])
-		}} >
+		<TouchableOpacity
+			style={{ paddingBottom: bottom + PADDING_TABS, paddingTop: PADDING_TABS, paddingHorizontal: PADDING_TABS }}
+			onPress={() => {
+				navigation.navigate(state.routeNames[info.key])
+			}} >
 			<AnimateIcon active={IS_FOCUSED} color={ICON_COLOR} source={info.source} />
 		</TouchableOpacity>
 	</View>
 
 }
+
 
 
 export default TabsNavigator
