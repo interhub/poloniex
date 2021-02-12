@@ -29,7 +29,7 @@ redux persist config by doc form  https://www.npmjs.com/package/redux-persist
 const persistConfig: PersistConfig<StateType> = {
 	key: 'root',
 	storage: AsyncStorage,
-	blacklist: ['loading', 'error', 'menu'],
+	blacklist: ['loading'],
 }
 const persistedReducer = persistReducer(persistConfig, reducer)
 

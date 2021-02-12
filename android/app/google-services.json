@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "135777970841",
+    "project_id": "poloniex-363fe",
+    "storage_bucket": "poloniex-363fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135777970841:android:2d62763ad874ab72996608",
+        "android_client_info": {
+          "package_name": "com.interhub.poloniex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135777970841-aag3637usavt9qfisds2nthl72mgc8d3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBOAQ0vz7ONsx4OR6_sgOWyN36Bt59fDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135777970841-aag3637usavt9qfisds2nthl72mgc8d3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "135777970841-jfcoqh34fkqe4vk65p3eboqeifncm6o6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.interhub.poloniex"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
