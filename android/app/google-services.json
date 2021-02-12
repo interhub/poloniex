@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:135777970841:android:2d62763ad874ab72996608",
+        "mobilesdk_app_id": "1:135777970841:android:0c1b0d5f8457f206996608",
         "android_client_info": {
-          "package_name": "com.interhub.poloniex"
+          "package_name": "com.devru.poloniex"
         }
       },
       "oauth_client": [
